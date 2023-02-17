@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/apollo', function () {
+    return ('Привет!');
 });
+
+Route::get('/apollo/post', [\App\Http\Controllers\PostController::class, 'index']);
