@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/apollo', function () {
-    return ('Привет!');
+    return ('Тестовый проект!');
 });
 
 Route::get('/apollo/post', [\App\Http\Controllers\PostController::class, 'index']);
