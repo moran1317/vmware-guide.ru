@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Author;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -40,5 +41,16 @@ class PostController extends Controller
         return [
             "deleted" => true
         ];
+    }
+
+    public function posts(Author $author)
+    {
+        return $author->posts;
+    }
+
+    public function author(Post $post)
+    {
+        $author = $post->author;
+        return $author->full_name;
     }
 }
