@@ -28,5 +28,5 @@ Route::delete('/post/{post}', [PostController::class, 'destroy']); //Удале�
 Route::get('/author/{author}/posts', [PostController::class, 'posts']); //вывод постов определенного автора
 Route::get('/post/{post}/author', [PostController::class, 'author']); //вывод автора определенного поста
 
-//Route::resource('category', \App\Http\Controllers\CategoryController::class);
+Route::resource('category', \App\Http\Controllers\CategoryController::class);
 
