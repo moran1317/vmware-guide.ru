@@ -27,6 +27,5 @@ Route::patch('/post/{post}', [PostController::class, 'update']); // Редакт
 Route::delete('/post/{post}', [PostController::class, 'destroy']); //Удаление поста
 Route::get('/author/{author}/posts', [PostController::class, 'posts']); //вывод постов определенного автора
 Route::get('/post/{post}/author', [PostController::class, 'author']); //вывод автора определенного поста
-
 Route::resource('category', \App\Http\Controllers\CategoryController::class);
 

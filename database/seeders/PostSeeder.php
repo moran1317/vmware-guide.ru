@@ -22,6 +22,7 @@ class PostSeeder extends Seeder
             'description' => Str::random(10),
             'category_id' => rand(1,2),
             'author_id' => rand(1,4),
+            'views' => rand(1,20)
         ]);
     }
 }
