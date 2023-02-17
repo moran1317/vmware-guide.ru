@@ -10,26 +10,26 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     //трансформация ответов
- /*   public function index()
-    {
-        $posts = Post::all();
-        $result = [];
-
-        foreach ($posts as $key => $post) {
-            $result[$key] = [
-                'name' => $post->name,
-                'title' => $post->title,
-                'description' => $post->description,
-                'views' => $post->views,
-                'author' => Author::find($post->author_id)->full_name,
-                'category' => Category::find($post->category_id)->name
-            ];
-        }
-
-        return [
-            "data" => $result
-        ];
- */  // }
+//    public function index()
+//    {
+//        $posts = Post::all();
+//        $result = [];
+//
+//        foreach ($posts as $key => $post) {
+//            $result[$key] = [
+//                'name' => $post->name,
+//                'title' => $post->title,
+//                'description' => $post->description,
+//                'views' => $post->views,
+//                'author' => Author::find($post->author_id)->full_name,
+//                'category' => Category::find($post->category_id)->name
+//            ];
+//        }
+//
+//        return [
+//            "data" => $result
+//        ];
+//    }
 
     public function index()
     {
