@@ -16,5 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[\App\Http\Controllers\SiteController::class, 'page_index']);
 Route::get('/home',[\App\Http\Controllers\SiteController::class, 'page_home']);
 Route::get('/about',[\App\Http\Controllers\SiteController::class, 'page_adout']);
+Route::get('/login', [\App\Http\Controllers\SiteController::class, 'loginForm']);
+Route::post('/login', [\App\Http\Controllers\SiteController::class, 'login'])->name('login');
 
 Route::get('/admin',[\App\Http\Controllers\AdminController::class, 'page_index']);
+Route::get('/admin/posts',[\App\Http\Controllers\AdminController::class, 'page_posts']);
+Route::get('/admin/users',[\App\Http\Controllers\AdminController::class, 'page_users']);
