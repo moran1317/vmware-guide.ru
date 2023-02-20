@@ -14,7 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return ('Тестовый проект!');
+    return (view('index'));
+});
+
+Route::get('/about', function () {
+    return (view('about'));
+});
+
+Route::get('/admin', function () {
+    return (view('admin.index'));
 });
 
 Route::get('/post', [\App\Http\Controllers\PostController::class, 'index']);
