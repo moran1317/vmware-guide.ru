@@ -13,16 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return (view('index'));
-});
+Route::get('/',[\App\Http\Controllers\SiteController::class, 'page_index']);
+Route::get('/home',[\App\Http\Controllers\SiteController::class, 'page_home']);
+Route::get('/about',[\App\Http\Controllers\SiteController::class, 'page_adout']);
 
-Route::get('/about', function () {
-    return (view('about'));
-});
-
-Route::get('/admin', function () {
-    return (view('admin.index'));
-});
-
-Route::get('/post', [\App\Http\Controllers\PostController::class, 'index']);
+Route::get('/admin',[\App\Http\Controllers\AdminController::class, 'page_index']);

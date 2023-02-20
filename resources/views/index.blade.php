@@ -8,6 +8,17 @@
     <title>Document</title>
 </head>
 <body>
-<h1>Glavnaya stranica</h1>
+
+<header>
+    shapka
+</header>
+
+@yield('content')
+
+<footer>
+    <hr>
+    podval
+</footer>
+
 </body>
 </html>

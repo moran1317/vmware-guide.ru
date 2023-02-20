@@ -8,6 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-<h1>admin main page1</h1>
+<h1>Admin main page</h1>
 </body>
 </html>
