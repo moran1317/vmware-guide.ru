@@ -23,6 +23,15 @@
             @enderror
         </div>
 
+        <div>
+            @error('error')
+            <small>{{$message}}</small>
+            @enderror
+        </div>
+
         <button>Log in</button>
     </form>
+
+    <a href="/register">Регистрация</a>
+
 @endsection
