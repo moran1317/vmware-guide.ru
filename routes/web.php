@@ -35,3 +35,5 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/posts',[\App\Http\Controllers\AdminController::class, 'page_posts']);
     Route::get('/admin/users',[\App\Http\Controllers\AdminController::class, 'page_users']);
 });
+
+

@@ -2,84 +2,82 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Resources\PostListResource;
-use App\Models\Author;
 use App\Models\Post;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
-    //трансформация ответов
-//    public function index()
-//    {
-//        $posts = Post::all();
-//        $result = [];
-//
-//        foreach ($posts as $key => $post) {
-//            $result[$key] = [
-//                'name' => $post->name,
-//                'title' => $post->title,
-//                'description' => $post->description,
-//                'views' => $post->views,
-//                'author' => Author::find($post->author_id)->full_name,
-//                'category' => Category::find($post->category_id)->name
-//            ];
-//        }
-//
-//        return [
-//            "data" => $result
-//        ];
-//    }
-
-    public function index()
+    /**
+     * Display a listing of the resource.
+     */
+    public function index(): Response
     {
-        $posts = Post::where('view', '>', '2')->get();
-        return PostListResource::collection($posts);
+        //
     }
 
-//    public function index()
-//    {
-//        $posts = Post::all();
-//        return $posts;
-//    }
-    public function show(Post $post)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create(): Response
     {
-        return $post;
-    }
-    public function store(Request $request)
-    {
-
-        return Post::create($request->all());
+        //
     }
 
-    public function update(Post $post, Request $request)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request): RedirectResponse
     {
-        $post->update($request->all());
-        $post->save();
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string|max:500',
+            'category_id' => 'required|integer',
+        ]);
 
-        return $post;
+        $post = Post::create([
+                'author_id' => Auth::user()->author->id,
+            ] + $request->all());
+
+        return back();
     }
 
-    public function destroy($id)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id): Response
     {
-
         $post = Post::find($id);
-
-        $post->delete();
-
-        return [
-            "deleted" => true
-        ];
+        $post->increment('views');
+        return view('post.single', ['post'=> $post]);
     }
 
-    public function posts(Author $author)
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id): Response
     {
-        return $author->posts;
+        return view('post.edit', ['post' => Post::find($id)]);
     }
 
-    public function author(Post $post)
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id): RedirectResponse
     {
-        $author = $post->author;
-        return $author->full_name;
+        Post::find($id)->update($request->all());
+        return redirect()->route('home');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id): RedirectResponse
+    {
+        Post::find($id)->delete();
+        return back();
     }
 }
