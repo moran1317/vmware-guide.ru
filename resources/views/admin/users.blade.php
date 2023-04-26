@@ -1,5 +1,5 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Users page</h1>
+    <h1>Страница пользователя</h1>
 @endsection

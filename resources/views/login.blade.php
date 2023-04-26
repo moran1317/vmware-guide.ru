@@ -14,7 +14,7 @@
                 <small>{{$message}}</small>
                 @enderror
 
-                <label>Password
+                <label>Пароль
                     <input type="password" name="password" value="{{ old('password') }}">
                 </label>
                 @error('password')

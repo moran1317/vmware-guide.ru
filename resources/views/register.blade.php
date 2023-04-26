@@ -25,11 +25,11 @@
             <div class="section"><span>3</span>Password</div>
             <div class="inner-wrap">
 
-                <label>Password<input type="password" name="password" value="{{ old('password') }}"></label>
+                <label>Пароль<input type="password" name="password" value="{{ old('password') }}"></label>
                 @error('password')
                 <small>{{$message}}</small>
                 @enderror
-                <label>Password confirmation<input type="password" name="password_confirmation" value="{{ old('password_confirmation') }}"></label>
+                <label>Подтверждение пароля<input type="password" name="password_confirmation" value="{{ old('password_confirmation') }}"></label>
                 @error('password_confirmation')
                 <small>{{$message}}</small>
                 @enderror

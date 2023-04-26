@@ -5,7 +5,7 @@
 
         <h1>Домашняя страница авторизованного пользователя</h1>
 
-        <h3>Свои посты:</h3>
+        <h3>Свои гайды:</h3>
         @if(count($posts))
             <table style="border-collapse: collapse;" border="1">
                 <thead>
@@ -52,14 +52,14 @@
             </table>
         @endif
 
-        <h3>Добавить новый пост</h3>
+        <h3>Добавить новый гайд</h3>
 
         <form class="form-style-10" action="/post" method="POST">
             @csrf
 
             <div class="section"><span>1</span>Name</div>
             <div class="inner-wrap">
-                <label>Posts name<input type="text" name="name"/></label>
+                <label>Guide name<input type="text" name="name"/></label>
                 @error('name')
                 <small>{{$message}}</small>
                 @enderror
@@ -73,7 +73,7 @@
                 @enderror
             </div>
 
-            <div class="section"><span>3</span>Description</div>
+            <div class="section"><span>3</span>Description guide</div>
             <div class="inner-wrap">
                 <label>Description <textarea name="description"></textarea></label>
                 @error('description')

@@ -10,7 +10,7 @@
 <body>
 
 <header>
-    AVKuld
+    VMware guide
 
     @guest()
         <a href="{{ route('login') }}">Войти</a>
